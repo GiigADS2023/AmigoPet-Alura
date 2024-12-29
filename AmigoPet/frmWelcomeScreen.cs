@@ -1,51 +1,38 @@
 ﻿using System;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace AmigoPet
 {
     public partial class frmWelcomeScreen : Form
     {
-        Thread TOpenWindow;
+        private frmFavoritesScreen favouritesScreen; // Instância compartilhada de favoritos
 
         public frmWelcomeScreen()
         {
             InitializeComponent();
+            favouritesScreen = new frmFavoritesScreen(); // Cria a instância de favoritos apenas uma vez
         }
 
         private void IconBreedSearch_Click(object sender, EventArgs e)
         {
-            this.Close();
-            TOpenWindow = new Thread(() => OpenWindow("Search"));
-            TOpenWindow.SetApartmentState(ApartmentState.STA);
-            TOpenWindow.Start();
+            // Esconde a tela de boas-vindas
+            this.Hide();
+
+            // Cria o formulário de busca e o exibe
+            var searchScreen = new frmSearchScreen(favouritesScreen); // Passa a instância existente de favoritos
+
+            searchScreen.FormClosed += (s, args) => this.Show(); // Reexibe o formulário de boas-vindas ao fechar
+            searchScreen.Show(); // Mostra o formulário de busca
         }
 
         private void IconFavoriteBreed_Click(object sender, EventArgs e)
         {
-            this.Close();
-            TOpenWindow = new Thread(() => OpenWindow("Favorites"));
-            TOpenWindow.SetApartmentState(ApartmentState.STA);
-            TOpenWindow.Start();
-        }
+            // Esconde a tela de boas-vindas
+            this.Hide();
 
-        private void OpenWindow(string screenType)
-        {
-            if (screenType == "Search")
-            {
-                Application.Run(new frmSearchScreen());
-                ReopenWelcomeScreen();
-            }
-            else if (screenType == "Favorites")
-            {
-                Application.Run(new frmFavoritesScreen());
-                ReopenWelcomeScreen();
-            }
-        }
-
-        private void ReopenWelcomeScreen()
-        {
-            Application.Run(new frmWelcomeScreen());
+            // Já existe uma instância do frmFavoritesScreen, então apenas exibe
+            favouritesScreen.FormClosed += (s, args) => this.Show(); // Reexibe o formulário de boas-vindas ao fechar
+            favouritesScreen.Show(); // Mostra o formulário de favoritos
         }
     }
 }

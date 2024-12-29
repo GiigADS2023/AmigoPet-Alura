@@ -15,9 +15,12 @@ namespace AmigoPet
 {
     public partial class frmSearchScreen : Form
     {
-        public frmSearchScreen()
+        private frmFavoritesScreen favouritesScreen;
+
+        public frmSearchScreen(frmFavoritesScreen favouritesScreen)
         {
             InitializeComponent();
+            this.favouritesScreen = favouritesScreen;
         }
 
         private void frmSearchScreen_Load(object sender, EventArgs e)
@@ -72,6 +75,32 @@ namespace AmigoPet
             else
             {
                 MessageBox.Show("Selecione uma raça no combo box.");
+            }
+        }
+
+        private void btnFavoritarGato_Click(object sender, EventArgs e)
+        {
+            if (cbRaca.SelectedItem != null)
+            {
+                // Acessando o item selecionado
+                var selectedCat = (dynamic)cbRaca.SelectedItem; // 'dynamic' para não precisar de classe extra
+                
+                string catName = selectedCat.Name;
+
+                // Adicionar o nome do gato na ListBox de favoritos no outro formulário
+                if (!favouritesScreen.ListBoxFavoritos.Items.Contains(catName))
+                {
+                    favouritesScreen.ListBoxFavoritos.Items.Add(catName);
+                    MessageBox.Show($"{catName} foi adicionado aos favoritos!");
+                }
+                else
+                {
+                    MessageBox.Show($"{catName} já está nos favoritos!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma raça para favoritar.");
             }
         }
     }

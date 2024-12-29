@@ -61,7 +61,7 @@
             this.lbResultadoDescricao.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbResultadoDescricao.Location = new System.Drawing.Point(234, 242);
             this.lbResultadoDescricao.Name = "lbResultadoDescricao";
-            this.lbResultadoDescricao.Size = new System.Drawing.Size(521, 67);
+            this.lbResultadoDescricao.Size = new System.Drawing.Size(521, 117);
             this.lbResultadoDescricao.TabIndex = 23;
             this.lbResultadoDescricao.Text = "Resultado";
             // 
@@ -179,6 +179,7 @@
             this.btnFavoritarGato.TabIndex = 29;
             this.btnFavoritarGato.Text = "Favoritar";
             this.btnFavoritarGato.UseVisualStyleBackColor = true;
+            this.btnFavoritarGato.Click += new System.EventHandler(this.btnFavoritarGato_Click);
             // 
             // btnBuscarGato
             // 

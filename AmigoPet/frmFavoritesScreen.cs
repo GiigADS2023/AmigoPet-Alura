@@ -16,5 +16,10 @@ namespace AmigoPet
         {
             InitializeComponent();
         }
+
+        public ListBox ListBoxFavoritos
+        {
+            get { return listBoxGatosFavoritos; }
+        }
     }
 }
