@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchScreen));
-            this.imgCatsSearch = new System.Windows.Forms.PictureBox();
-            this.cbRaça = new System.Windows.Forms.ComboBox();
+            this.cbRaca = new System.Windows.Forms.ComboBox();
             this.lbResultadoDescricao = new System.Windows.Forms.Label();
             this.lbResultadoOrigem = new System.Windows.Forms.Label();
             this.lbResultadoTemperamento = new System.Windows.Forms.Label();
@@ -41,57 +40,46 @@
             this.lbSeparator = new System.Windows.Forms.Label();
             this.lbSubtitleAmigoPet = new System.Windows.Forms.Label();
             this.lbTitleAmigoPet = new System.Windows.Forms.Label();
-            this.btnBuscarGato = new System.Windows.Forms.Button();
+            this.imgCatSearch = new System.Windows.Forms.PictureBox();
             this.btnFavoritarGato = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.imgCatsSearch)).BeginInit();
+            this.btnBuscarGato = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCatSearch)).BeginInit();
             this.SuspendLayout();
             // 
-            // imgCatsSearch
+            // cbRaca
             // 
-            this.imgCatsSearch.Image = global::AmigoPet.Properties.Resources.cats_search_screen;
-            this.imgCatsSearch.Location = new System.Drawing.Point(43, 165);
-            this.imgCatsSearch.Name = "imgCatsSearch";
-            this.imgCatsSearch.Size = new System.Drawing.Size(634, 304);
-            this.imgCatsSearch.TabIndex = 13;
-            this.imgCatsSearch.TabStop = false;
-            // 
-            // cbRaça
-            // 
-            this.cbRaça.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRaça.FormattingEnabled = true;
-            this.cbRaça.Location = new System.Drawing.Point(440, 104);
-            this.cbRaça.Name = "cbRaça";
-            this.cbRaça.Size = new System.Drawing.Size(211, 27);
-            this.cbRaça.TabIndex = 24;
-            this.cbRaça.Text = "Selecione uma raça";
+            this.cbRaca.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRaca.FormattingEnabled = true;
+            this.cbRaca.Location = new System.Drawing.Point(238, 103);
+            this.cbRaca.Name = "cbRaca";
+            this.cbRaca.Size = new System.Drawing.Size(211, 27);
+            this.cbRaca.TabIndex = 24;
+            this.cbRaca.Text = "Selecione uma raça";
             // 
             // lbResultadoDescricao
             // 
-            this.lbResultadoDescricao.AutoSize = true;
             this.lbResultadoDescricao.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultadoDescricao.Location = new System.Drawing.Point(436, 226);
+            this.lbResultadoDescricao.Location = new System.Drawing.Point(234, 242);
             this.lbResultadoDescricao.Name = "lbResultadoDescricao";
-            this.lbResultadoDescricao.Size = new System.Drawing.Size(80, 19);
+            this.lbResultadoDescricao.Size = new System.Drawing.Size(521, 67);
             this.lbResultadoDescricao.TabIndex = 23;
             this.lbResultadoDescricao.Text = "Resultado";
             // 
             // lbResultadoOrigem
             // 
-            this.lbResultadoOrigem.AutoSize = true;
             this.lbResultadoOrigem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultadoOrigem.Location = new System.Drawing.Point(436, 189);
+            this.lbResultadoOrigem.Location = new System.Drawing.Point(234, 193);
             this.lbResultadoOrigem.Name = "lbResultadoOrigem";
-            this.lbResultadoOrigem.Size = new System.Drawing.Size(80, 19);
+            this.lbResultadoOrigem.Size = new System.Drawing.Size(521, 49);
             this.lbResultadoOrigem.TabIndex = 22;
             this.lbResultadoOrigem.Text = "Resultado";
             // 
             // lbResultadoTemperamento
             // 
-            this.lbResultadoTemperamento.AutoSize = true;
             this.lbResultadoTemperamento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultadoTemperamento.Location = new System.Drawing.Point(436, 150);
+            this.lbResultadoTemperamento.Location = new System.Drawing.Point(234, 139);
             this.lbResultadoTemperamento.Name = "lbResultadoTemperamento";
-            this.lbResultadoTemperamento.Size = new System.Drawing.Size(80, 19);
+            this.lbResultadoTemperamento.Size = new System.Drawing.Size(521, 54);
             this.lbResultadoTemperamento.TabIndex = 21;
             this.lbResultadoTemperamento.Text = "Resultado";
             // 
@@ -100,7 +88,7 @@
             this.lbDescricaoGato.AutoSize = true;
             this.lbDescricaoGato.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDescricaoGato.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbDescricaoGato.Location = new System.Drawing.Point(237, 222);
+            this.lbDescricaoGato.Location = new System.Drawing.Point(35, 239);
             this.lbDescricaoGato.Name = "lbDescricaoGato";
             this.lbDescricaoGato.Size = new System.Drawing.Size(79, 22);
             this.lbDescricaoGato.TabIndex = 20;
@@ -111,7 +99,7 @@
             this.lbOrigemGato.AutoSize = true;
             this.lbOrigemGato.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOrigemGato.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbOrigemGato.Location = new System.Drawing.Point(237, 185);
+            this.lbOrigemGato.Location = new System.Drawing.Point(35, 190);
             this.lbOrigemGato.Name = "lbOrigemGato";
             this.lbOrigemGato.Size = new System.Drawing.Size(60, 22);
             this.lbOrigemGato.TabIndex = 19;
@@ -122,7 +110,7 @@
             this.lbTemperamentoGato.AutoSize = true;
             this.lbTemperamentoGato.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTemperamentoGato.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbTemperamentoGato.Location = new System.Drawing.Point(237, 145);
+            this.lbTemperamentoGato.Location = new System.Drawing.Point(35, 136);
             this.lbTemperamentoGato.Name = "lbTemperamentoGato";
             this.lbTemperamentoGato.Size = new System.Drawing.Size(113, 22);
             this.lbTemperamentoGato.TabIndex = 18;
@@ -133,7 +121,7 @@
             this.lbRacaGato.AutoSize = true;
             this.lbRacaGato.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRacaGato.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbRacaGato.Location = new System.Drawing.Point(237, 103);
+            this.lbRacaGato.Location = new System.Drawing.Point(36, 108);
             this.lbRacaGato.Name = "lbRacaGato";
             this.lbRacaGato.Size = new System.Drawing.Size(103, 22);
             this.lbRacaGato.TabIndex = 17;
@@ -174,23 +162,33 @@
             this.lbTitleAmigoPet.Text = "Encontre Sua Raça Favorita";
             this.lbTitleAmigoPet.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnBuscarGato
+            // imgCatSearch
             // 
-            this.btnBuscarGato.Location = new System.Drawing.Point(683, 394);
-            this.btnBuscarGato.Name = "btnBuscarGato";
-            this.btnBuscarGato.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarGato.TabIndex = 25;
-            this.btnBuscarGato.Text = "Buscar";
-            this.btnBuscarGato.UseVisualStyleBackColor = true;
+            this.imgCatSearch.Image = ((System.Drawing.Image)(resources.GetObject("imgCatSearch.Image")));
+            this.imgCatSearch.Location = new System.Drawing.Point(387, 362);
+            this.imgCatSearch.Name = "imgCatSearch";
+            this.imgCatSearch.Size = new System.Drawing.Size(311, 161);
+            this.imgCatSearch.TabIndex = 27;
+            this.imgCatSearch.TabStop = false;
             // 
             // btnFavoritarGato
             // 
-            this.btnFavoritarGato.Location = new System.Drawing.Point(683, 423);
+            this.btnFavoritarGato.Location = new System.Drawing.Point(683, 417);
             this.btnFavoritarGato.Name = "btnFavoritarGato";
             this.btnFavoritarGato.Size = new System.Drawing.Size(75, 23);
-            this.btnFavoritarGato.TabIndex = 26;
+            this.btnFavoritarGato.TabIndex = 29;
             this.btnFavoritarGato.Text = "Favoritar";
             this.btnFavoritarGato.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarGato
+            // 
+            this.btnBuscarGato.Location = new System.Drawing.Point(683, 388);
+            this.btnBuscarGato.Name = "btnBuscarGato";
+            this.btnBuscarGato.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarGato.TabIndex = 28;
+            this.btnBuscarGato.Text = "Buscar";
+            this.btnBuscarGato.UseVisualStyleBackColor = true;
+            this.btnBuscarGato.Click += new System.EventHandler(this.btnBuscarGato_Click_1);
             // 
             // frmSearchScreen
             // 
@@ -200,7 +198,8 @@
             this.ClientSize = new System.Drawing.Size(800, 464);
             this.Controls.Add(this.btnFavoritarGato);
             this.Controls.Add(this.btnBuscarGato);
-            this.Controls.Add(this.cbRaça);
+            this.Controls.Add(this.imgCatSearch);
+            this.Controls.Add(this.cbRaca);
             this.Controls.Add(this.lbResultadoDescricao);
             this.Controls.Add(this.lbResultadoOrigem);
             this.Controls.Add(this.lbResultadoTemperamento);
@@ -211,20 +210,19 @@
             this.Controls.Add(this.lbSeparator);
             this.Controls.Add(this.lbSubtitleAmigoPet);
             this.Controls.Add(this.lbTitleAmigoPet);
-            this.Controls.Add(this.imgCatsSearch);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSearchScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Raças";
-            ((System.ComponentModel.ISupportInitialize)(this.imgCatsSearch)).EndInit();
+            this.Load += new System.EventHandler(this.frmSearchScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.imgCatSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox imgCatsSearch;
-        private System.Windows.Forms.ComboBox cbRaça;
+        private System.Windows.Forms.ComboBox cbRaca;
         private System.Windows.Forms.Label lbResultadoDescricao;
         private System.Windows.Forms.Label lbResultadoOrigem;
         private System.Windows.Forms.Label lbResultadoTemperamento;
@@ -235,7 +233,8 @@
         private System.Windows.Forms.Label lbSeparator;
         private System.Windows.Forms.Label lbSubtitleAmigoPet;
         private System.Windows.Forms.Label lbTitleAmigoPet;
-        private System.Windows.Forms.Button btnBuscarGato;
+        private System.Windows.Forms.PictureBox imgCatSearch;
         private System.Windows.Forms.Button btnFavoritarGato;
+        private System.Windows.Forms.Button btnBuscarGato;
     }
 }

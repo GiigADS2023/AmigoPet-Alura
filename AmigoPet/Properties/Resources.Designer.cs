@@ -73,6 +73,16 @@ namespace AmigoPet.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cats_screen {
+            get {
+                object obj = ResourceManager.GetObject("cats_screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cats_search_screen {
             get {
                 object obj = ResourceManager.GetObject("cats_search_screen", resourceCulture);
