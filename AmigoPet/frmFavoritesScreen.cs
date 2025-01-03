@@ -1,75 +1,106 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using AmigoPet.APIService;
 
 namespace AmigoPet
 {
     public partial class frmFavoritesScreen : Form
     {
-        // Lista de gatos favoritos (pode ser substituída por outro método de persistência)
-        private List<string> favoritos = new List<string>();
+        private readonly CatApiService _catApiService;
+
+        private static frmFavoritesScreen _instance;
+
+        public static frmFavoritesScreen Instance
+        {
+            get
+            {
+                if (_instance == null || _instance.IsDisposed)
+                {
+                    _instance = new frmFavoritesScreen();
+                }
+                return _instance;
+            }
+        }
 
         public frmFavoritesScreen()
         {
             InitializeComponent();
-            this.FormClosing += frmFavoritesScreen_FormClosing; // Adiciona o evento FormClosing
-            LoadFavoritos(); // Carrega os favoritos
+            _catApiService = new CatApiService();
         }
 
-        public ListBox ListBoxFavoritos
+        // Marcado o método como 'async' para usar 'await'
+        private async void frmFavoritesScreen_Load(object sender, EventArgs e)
         {
-            get { return listBoxGatosFavoritos; }
-        }
-
-        // Método para carregar os gatos favoritos na ListBox
-        private void LoadFavoritos()
-        {
-            // A lista de gatos pode ser carregada de uma variável, banco de dados, ou outro método
-            listBoxGatosFavoritos.Items.Clear();
-            foreach (var gato in favoritos)
+            try
             {
-                listBoxGatosFavoritos.Items.Add(gato);
+                // Obtém a lista de favoritos de forma assíncrona
+                var favourites = await _catApiService.GetFavouritesAsync();
+
+                if (favourites.Count == 0)
+                {
+                    MessageBox.Show("Nenhuma raça favorita encontrada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Exibe os nomes das raças no ListBox
+                foreach (var favourite in favourites)
+                {
+                    // Exibe o ID da imagem (ou outro dado relevante)
+                    listBoxGatosFavoritos.Items.Add($"Imagem ID: {favourite.Image_Id}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar favoritos: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Método para adicionar gato à lista
-        public void AddFavorito(string gato)
+        // Método assíncrono para excluir um favorito
+        private async void btExcluirGatoFavorito_Click(object sender, EventArgs e)
         {
-            favoritos.Add(gato);
-            LoadFavoritos();
-        }
-
-        // Método para excluir gato da lista
-        private void btExcluirGatoFavorito_Click(object sender, EventArgs e)
-        {
-            if (ListBoxFavoritos.SelectedItem != null)
+            // Verifica se há um item selecionado no ListBox
+            if (listBoxGatosFavoritos.SelectedItem == null)
             {
-                string selectedCat = ListBoxFavoritos.SelectedItem.ToString();
+                MessageBox.Show("Selecione um favorito para remover.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                DialogResult confirmaExclusao = MessageBox.Show($"Deseja realmente excluir o {selectedCat}?", "Aviso",
-                                                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Obtém o ID do favorito do item selecionado
+            var selectedItem = listBoxGatosFavoritos.SelectedItem.ToString();
+            var favouriteId = int.Parse(selectedItem.Split(':')[1].Trim()); // Supondo que o ID está no formato "Imagem ID: {id}"
+
+            try
+            {
+                DialogResult confirmaExclusao = MessageBox.Show("Deseja realmente excluir este item?", "Questão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (DialogResult.Yes == confirmaExclusao)
                 {
-                    ListBoxFavoritos.Items.Remove(selectedCat);
-                    MessageBox.Show($"{selectedCat} foi removido dos favoritos!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Erro ao remover {selectedCat}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Chama o método assíncrono para excluir o favorito
+                    bool isDeleted = await _catApiService.DeleteFavouriteAsync(favouriteId);
+
+                    if (isDeleted)
+                    {
+                        MessageBox.Show("Favorito removido com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        listBoxGatosFavoritos.Items.Remove(selectedItem); // Remove o item da lista
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao remover favorito. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Selecione um gato para remover dos favoritos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Erro ao remover favorito: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void frmFavoritesScreen_FormClosing(object sender, FormClosingEventArgs e)
+        private void btVoltar_Click(object sender, EventArgs e)
         {
-            // Cancela o fechamento e apenas esconde o formulário
-            e.Cancel = true;
-            this.Hide();
+            frmWelcomeScreen welcomeScreen = new frmWelcomeScreen();
+            welcomeScreen.Show();
+            this.Hide(); // Esconde a tela atual
         }
     }
 }

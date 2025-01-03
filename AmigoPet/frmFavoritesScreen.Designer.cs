@@ -34,6 +34,7 @@
             this.lbTitleAmigoPet = new System.Windows.Forms.Label();
             this.btExcluirGatoFavorito = new System.Windows.Forms.Button();
             this.listBoxGatosFavoritos = new System.Windows.Forms.ListBox();
+            this.btVoltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbSeparator
@@ -88,12 +89,23 @@
             this.listBoxGatosFavoritos.Size = new System.Drawing.Size(514, 276);
             this.listBoxGatosFavoritos.TabIndex = 22;
             // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(684, 12);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btVoltar.TabIndex = 23;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
+            // 
             // frmFavoritesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(226)))), ((int)(((byte)(172)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btVoltar);
             this.Controls.Add(this.listBoxGatosFavoritos);
             this.Controls.Add(this.btExcluirGatoFavorito);
             this.Controls.Add(this.lbTitleAmigoPet);
@@ -103,7 +115,7 @@
             this.Name = "frmFavoritesScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Raças Favoritas";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFavoritesScreen_FormClosing);
+            this.Load += new System.EventHandler(this.frmFavoritesScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Label lbTitleAmigoPet;
         private System.Windows.Forms.Button btExcluirGatoFavorito;
         private System.Windows.Forms.ListBox listBoxGatosFavoritos;
+        private System.Windows.Forms.Button btVoltar;
     }
 }

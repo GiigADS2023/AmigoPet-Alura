@@ -43,6 +43,7 @@
             this.imgCatSearch = new System.Windows.Forms.PictureBox();
             this.btnFavoritarGato = new System.Windows.Forms.Button();
             this.btnBuscarGato = new System.Windows.Forms.Button();
+            this.btVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgCatSearch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,12 +192,23 @@
             this.btnBuscarGato.UseVisualStyleBackColor = true;
             this.btnBuscarGato.Click += new System.EventHandler(this.btnBuscarGato_Click);
             // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(683, 13);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btVoltar.TabIndex = 30;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
+            // 
             // frmSearchScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(226)))), ((int)(((byte)(172)))));
             this.ClientSize = new System.Drawing.Size(800, 464);
+            this.Controls.Add(this.btVoltar);
             this.Controls.Add(this.btnFavoritarGato);
             this.Controls.Add(this.btnBuscarGato);
             this.Controls.Add(this.imgCatSearch);
@@ -237,5 +249,6 @@
         private System.Windows.Forms.PictureBox imgCatSearch;
         private System.Windows.Forms.Button btnFavoritarGato;
         private System.Windows.Forms.Button btnBuscarGato;
+        private System.Windows.Forms.Button btVoltar;
     }
 }

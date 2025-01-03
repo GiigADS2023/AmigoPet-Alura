@@ -86,6 +86,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIService\CatApiService.cs" />
+    <Compile Include="APIService\Favourite.cs" />
     <Compile Include="frmWelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,7 +106,6 @@
     <Compile Include="frmFavoritesScreen.Designer.cs">
       <DependentUpon>frmFavoritesScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gato.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmSearchScreen.resx">
