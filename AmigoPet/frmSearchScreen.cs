@@ -45,13 +45,13 @@ namespace AmigoPet
                     return;
                 }
 
-                var selectedBreed = breeds.FirstOrDefault(b => b.Name.Equals(selectedBreedName, StringComparison.OrdinalIgnoreCase));
+                var selectedBreed = breeds.FirstOrDefault(b => b.name.Equals(selectedBreedName, StringComparison.OrdinalIgnoreCase));
 
                 if (selectedBreed != null)
                 {
-                    lbResultadoTemperamento.Text = selectedBreed.Temperament;
-                    lbResultadoOrigem.Text = selectedBreed.Origin;
-                    lbResultadoDescricao.Text = selectedBreed.Description;
+                    lbResultadoTemperamento.Text = selectedBreed.temperament;
+                    lbResultadoOrigem.Text = selectedBreed.origin;
+                    lbResultadoDescricao.Text = selectedBreed.description;
                 }
                 else
                 {
@@ -64,25 +64,36 @@ namespace AmigoPet
             }
         }
 
-        private async void frmSearchScreen_Load(object sender, EventArgs e)
+        private void frmSearchScreen_Load(object sender, EventArgs e)
         {
-            try
-            {
-                var breeds = await _catApiService.GetBreedsAsync();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://api.thecatapi.com/v1/");
+            client.DefaultRequestHeaders.Add("x-api-key", "live_fKX1CYdcnuqMtNWIRfFWyRtR9VjHDs8v8LRIWLuhtmZzOUjhF8fSveF0MtUVFLDd");
 
-                if (breeds == null || !breeds.Any())
+            HttpResponseMessage response = client.GetAsync("breeds").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = response.Content.ReadAsStringAsync().Result;
+                var cats = JsonConvert.DeserializeObject<List<Gato>>(json);
+
+                if (cats != null && cats.Any())
                 {
-                    MessageBox.Show("Nenhuma raça foi encontrada. Verifique sua conexão com a API.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                    foreach (var cat in cats)
+                    {
+                        cbRaca.Items.Add(cat.name); 
+                    }
 
-                cbRaca.DataSource = null;
-                cbRaca.DataSource = breeds.Select(b => b.Name).ToList();
-                cbRaca.SelectedIndex = -1;
+                    cbRaca.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("Nenhuma raça foi encontrada.");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Erro ao carregar raças: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao carregar raças.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -90,7 +101,6 @@ namespace AmigoPet
         {
             try
             {
-                // Obtém o nome da raça selecionada
                 var selectedBreedName = cbRaca.SelectedItem?.ToString();
 
                 if (string.IsNullOrEmpty(selectedBreedName))
@@ -99,26 +109,27 @@ namespace AmigoPet
                     return;
                 }
 
-                // Faz a busca das raças
                 var breeds = await _catApiService.GetBreedsAsync();
-                var selectedBreed = breeds.FirstOrDefault(b => b.Name.Equals(selectedBreedName, StringComparison.OrdinalIgnoreCase));
+                var selectedBreed = breeds.FirstOrDefault(b => b.name.Equals(selectedBreedName, StringComparison.OrdinalIgnoreCase));
 
-                if (selectedBreed == null || selectedBreed.Image == null || string.IsNullOrEmpty(selectedBreed.Image.Id))
+                if (selectedBreed == null || selectedBreed.image == null || string.IsNullOrEmpty(selectedBreed.image.id))
                 {
                     MessageBox.Show("Não foi possível localizar a imagem da raça selecionada.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Envia a raça favorita para a API
-                var success = await _catApiService.FavoriteBreedAsync(selectedBreed.Image.Id);
+                var success = await _catApiService.FavoriteBreedAsync(selectedBreed.image.id);
 
                 if (success)
                 {
+                    var favoritesScreen = frmFavoritesScreen.Instance;
+                    favoritesScreen.AddToFavorites(selectedBreedName);
+
                     MessageBox.Show("Raça favoritada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Erro ao favoritar a raça. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Já foi adicionado aos favoritos!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -131,7 +142,7 @@ namespace AmigoPet
         {
             frmWelcomeScreen welcomeScreen = new frmWelcomeScreen();
             welcomeScreen.Show();
-            this.Hide(); // Esconde a tela atual
+            this.Hide(); 
         }
     }
 }

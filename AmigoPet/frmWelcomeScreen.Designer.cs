@@ -47,7 +47,7 @@
             this.IconFavoriteBreed});
             this.AmigoPet_Menu.Location = new System.Drawing.Point(0, 0);
             this.AmigoPet_Menu.Name = "AmigoPet_Menu";
-            this.AmigoPet_Menu.Size = new System.Drawing.Size(800, 31);
+            this.AmigoPet_Menu.Size = new System.Drawing.Size(913, 31);
             this.AmigoPet_Menu.TabIndex = 0;
             this.AmigoPet_Menu.Text = "menuStrip1";
             // 
@@ -74,7 +74,7 @@
             this.lbWelcomeAmigoPet.AutoSize = true;
             this.lbWelcomeAmigoPet.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWelcomeAmigoPet.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbWelcomeAmigoPet.Location = new System.Drawing.Point(205, 294);
+            this.lbWelcomeAmigoPet.Location = new System.Drawing.Point(258, 344);
             this.lbWelcomeAmigoPet.Name = "lbWelcomeAmigoPet";
             this.lbWelcomeAmigoPet.Size = new System.Drawing.Size(395, 35);
             this.lbWelcomeAmigoPet.TabIndex = 1;
@@ -83,7 +83,7 @@
             // imgCatWelcome
             // 
             this.imgCatWelcome.Image = global::AmigoPet.Properties.Resources.cat_welcome_screen;
-            this.imgCatWelcome.Location = new System.Drawing.Point(334, 99);
+            this.imgCatWelcome.Location = new System.Drawing.Point(387, 149);
             this.imgCatWelcome.Name = "imgCatWelcome";
             this.imgCatWelcome.Size = new System.Drawing.Size(201, 192);
             this.imgCatWelcome.TabIndex = 2;
@@ -94,7 +94,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(240)))), ((int)(((byte)(199)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(913, 526);
             this.Controls.Add(this.imgCatWelcome);
             this.Controls.Add(this.lbWelcomeAmigoPet);
             this.Controls.Add(this.AmigoPet_Menu);

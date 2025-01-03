@@ -22,7 +22,7 @@ namespace AmigoPet.APIService
             _httpClient.DefaultRequestHeaders.Add("x-api-key", "live_fKX1CYdcnuqMtNWIRfFWyRtR9VjHDs8v8LRIWLuhtmZzOUjhF8fSveF0MtUVFLDd");
         }
 
-        public async Task<List<CatBreed>> GetBreedsAsync()
+        public async Task<List<Gato>> GetBreedsAsync()
         {
             try
             {
@@ -31,19 +31,19 @@ namespace AmigoPet.APIService
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Resposta JSON: {json}"); // Debug
 
-                    // Utilize apenas System.Text.Json.JsonSerializer
-                    var breeds = JsonSerializer.Deserialize<List<CatBreed>>(json);
-                    return breeds;
+                    var breeds = JsonSerializer.Deserialize<List<Gato>>(json);
+                    return breeds ?? new List<Gato>();
                 }
                 else
                 {
-                    throw new Exception("Erro ao carregar raças: " + response.ReasonPhrase);
+                    throw new Exception($"Erro na resposta da API: {response.ReasonPhrase}");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao carregar raças: " + ex.Message);
+                throw new Exception($"Erro ao carregar raças: {ex.Message}");
             }
         }
 
@@ -101,19 +101,19 @@ namespace AmigoPet.APIService
         }
     }
 
-    public class CatBreed
+    public class Gato
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Temperament { get; set; }
-        public string Origin { get; set; }
-        public CatImage Image { get; set; }
+        public string id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public string temperament { get; set; }
+        public string origin { get; set; }
+        public CatImage image { get; set; }
     }
 
     public class CatImage
     {
-        public string Id { get; set; }
-        public string Url { get; set; }
+        public string id { get; set; }
+        public string url { get; set; }
     }
 }

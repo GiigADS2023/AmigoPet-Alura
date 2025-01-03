@@ -13,14 +13,14 @@ namespace AmigoPet
 
         private void IconBreedSearch_Click(object sender, EventArgs e)
         {
-            frmSearchScreen.Instance.Show(); // Abre a tela de busca
-            this.Hide(); // Esconde a tela de boas-vindas
+            frmSearchScreen.Instance.Show(); 
+            this.Hide(); 
         }
 
         private void IconFavoriteBreed_Click(object sender, EventArgs e)
         {
-            frmFavoritesScreen.Instance.Show(); // Abre a tela de favoritos
-            this.Hide(); // Esconde a tela de boas-vindas
+            frmFavoritesScreen.Instance.Show(); 
+            this.Hide(); 
         }
     }
 }

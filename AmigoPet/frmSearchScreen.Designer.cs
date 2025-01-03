@@ -51,7 +51,7 @@
             // 
             this.cbRaca.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRaca.FormattingEnabled = true;
-            this.cbRaca.Location = new System.Drawing.Point(238, 103);
+            this.cbRaca.Location = new System.Drawing.Point(255, 107);
             this.cbRaca.Name = "cbRaca";
             this.cbRaca.Size = new System.Drawing.Size(211, 27);
             this.cbRaca.TabIndex = 24;
@@ -60,27 +60,27 @@
             // lbResultadoDescricao
             // 
             this.lbResultadoDescricao.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultadoDescricao.Location = new System.Drawing.Point(234, 242);
+            this.lbResultadoDescricao.Location = new System.Drawing.Point(251, 246);
             this.lbResultadoDescricao.Name = "lbResultadoDescricao";
-            this.lbResultadoDescricao.Size = new System.Drawing.Size(521, 117);
+            this.lbResultadoDescricao.Size = new System.Drawing.Size(650, 228);
             this.lbResultadoDescricao.TabIndex = 23;
             this.lbResultadoDescricao.Text = "Resultado";
             // 
             // lbResultadoOrigem
             // 
             this.lbResultadoOrigem.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultadoOrigem.Location = new System.Drawing.Point(234, 193);
+            this.lbResultadoOrigem.Location = new System.Drawing.Point(251, 197);
             this.lbResultadoOrigem.Name = "lbResultadoOrigem";
-            this.lbResultadoOrigem.Size = new System.Drawing.Size(521, 49);
+            this.lbResultadoOrigem.Size = new System.Drawing.Size(650, 49);
             this.lbResultadoOrigem.TabIndex = 22;
             this.lbResultadoOrigem.Text = "Resultado";
             // 
             // lbResultadoTemperamento
             // 
             this.lbResultadoTemperamento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbResultadoTemperamento.Location = new System.Drawing.Point(234, 139);
+            this.lbResultadoTemperamento.Location = new System.Drawing.Point(251, 143);
             this.lbResultadoTemperamento.Name = "lbResultadoTemperamento";
-            this.lbResultadoTemperamento.Size = new System.Drawing.Size(521, 54);
+            this.lbResultadoTemperamento.Size = new System.Drawing.Size(650, 54);
             this.lbResultadoTemperamento.TabIndex = 21;
             this.lbResultadoTemperamento.Text = "Resultado";
             // 
@@ -135,7 +135,7 @@
             this.lbSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSeparator.Location = new System.Drawing.Point(40, 91);
             this.lbSeparator.Name = "lbSeparator";
-            this.lbSeparator.Size = new System.Drawing.Size(718, 3);
+            this.lbSeparator.Size = new System.Drawing.Size(840, 3);
             this.lbSeparator.TabIndex = 16;
             this.lbSeparator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -143,7 +143,7 @@
             // 
             this.lbSubtitleAmigoPet.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubtitleAmigoPet.ForeColor = System.Drawing.Color.Peru;
-            this.lbSubtitleAmigoPet.Location = new System.Drawing.Point(39, 36);
+            this.lbSubtitleAmigoPet.Location = new System.Drawing.Point(100, 39);
             this.lbSubtitleAmigoPet.Name = "lbSubtitleAmigoPet";
             this.lbSubtitleAmigoPet.Size = new System.Drawing.Size(719, 55);
             this.lbSubtitleAmigoPet.TabIndex = 15;
@@ -156,7 +156,7 @@
             this.lbTitleAmigoPet.AutoSize = true;
             this.lbTitleAmigoPet.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitleAmigoPet.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbTitleAmigoPet.Location = new System.Drawing.Point(233, 9);
+            this.lbTitleAmigoPet.Location = new System.Drawing.Point(289, 9);
             this.lbTitleAmigoPet.Name = "lbTitleAmigoPet";
             this.lbTitleAmigoPet.Size = new System.Drawing.Size(322, 27);
             this.lbTitleAmigoPet.TabIndex = 14;
@@ -166,7 +166,7 @@
             // imgCatSearch
             // 
             this.imgCatSearch.Image = ((System.Drawing.Image)(resources.GetObject("imgCatSearch.Image")));
-            this.imgCatSearch.Location = new System.Drawing.Point(387, 362);
+            this.imgCatSearch.Location = new System.Drawing.Point(509, 428);
             this.imgCatSearch.Name = "imgCatSearch";
             this.imgCatSearch.Size = new System.Drawing.Size(311, 161);
             this.imgCatSearch.TabIndex = 27;
@@ -174,7 +174,7 @@
             // 
             // btnFavoritarGato
             // 
-            this.btnFavoritarGato.Location = new System.Drawing.Point(683, 417);
+            this.btnFavoritarGato.Location = new System.Drawing.Point(826, 493);
             this.btnFavoritarGato.Name = "btnFavoritarGato";
             this.btnFavoritarGato.Size = new System.Drawing.Size(75, 23);
             this.btnFavoritarGato.TabIndex = 29;
@@ -184,7 +184,7 @@
             // 
             // btnBuscarGato
             // 
-            this.btnBuscarGato.Location = new System.Drawing.Point(683, 388);
+            this.btnBuscarGato.Location = new System.Drawing.Point(826, 464);
             this.btnBuscarGato.Name = "btnBuscarGato";
             this.btnBuscarGato.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarGato.TabIndex = 28;
@@ -194,7 +194,7 @@
             // 
             // btVoltar
             // 
-            this.btVoltar.Location = new System.Drawing.Point(683, 13);
+            this.btVoltar.Location = new System.Drawing.Point(826, 9);
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(75, 23);
             this.btVoltar.TabIndex = 30;
@@ -207,7 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(226)))), ((int)(((byte)(172)))));
-            this.ClientSize = new System.Drawing.Size(800, 464);
+            this.ClientSize = new System.Drawing.Size(913, 526);
             this.Controls.Add(this.btVoltar);
             this.Controls.Add(this.btnFavoritarGato);
             this.Controls.Add(this.btnBuscarGato);
