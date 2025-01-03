@@ -5,12 +5,17 @@ namespace AmigoPet
 {
     public partial class frmWelcomeScreen : Form
     {
-        private frmFavoritesScreen favouritesScreen; // Instância compartilhada de favoritos
+        private frmFavoritesScreen favouritesScreen; // Instância única de favoritos
 
         public frmWelcomeScreen()
         {
             InitializeComponent();
-            favouritesScreen = new frmFavoritesScreen(); // Cria a instância de favoritos apenas uma vez
+
+            // Cria a instância de favoritos uma vez
+            favouritesScreen = new frmFavoritesScreen();
+
+            // Adiciona o evento de fechamento apenas uma vez no construtor
+            favouritesScreen.FormClosed += (s, args) => this.Show();
         }
 
         private void IconBreedSearch_Click(object sender, EventArgs e)
@@ -18,10 +23,10 @@ namespace AmigoPet
             // Esconde a tela de boas-vindas
             this.Hide();
 
-            // Cria o formulário de busca e o exibe
-            var searchScreen = new frmSearchScreen(favouritesScreen); // Passa a instância existente de favoritos
+            // Cria o formulário de busca e passa a instância de favoritos
+            var searchScreen = new frmSearchScreen(favouritesScreen);
 
-            searchScreen.FormClosed += (s, args) => this.Show(); // Reexibe o formulário de boas-vindas ao fechar
+            searchScreen.FormClosed += (s, args) => this.Show(); // Reexibe a tela de boas-vindas ao fechar
             searchScreen.Show(); // Mostra o formulário de busca
         }
 
@@ -30,9 +35,8 @@ namespace AmigoPet
             // Esconde a tela de boas-vindas
             this.Hide();
 
-            // Já existe uma instância do frmFavoritesScreen, então apenas exibe
-            favouritesScreen.FormClosed += (s, args) => this.Show(); // Reexibe o formulário de boas-vindas ao fechar
-            favouritesScreen.Show(); // Mostra o formulário de favoritos
+            // Apenas exibe a instância única de favoritos
+            favouritesScreen.Show();
         }
     }
 }

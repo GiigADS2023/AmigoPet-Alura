@@ -77,6 +77,7 @@
             this.btExcluirGatoFavorito.TabIndex = 21;
             this.btExcluirGatoFavorito.Text = "Excluir Favorito";
             this.btExcluirGatoFavorito.UseVisualStyleBackColor = true;
+            this.btExcluirGatoFavorito.Click += new System.EventHandler(this.btExcluirGatoFavorito_Click);
             // 
             // listBoxGatosFavoritos
             // 
@@ -102,6 +103,7 @@
             this.Name = "frmFavoritesScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Raças Favoritas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFavoritesScreen_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

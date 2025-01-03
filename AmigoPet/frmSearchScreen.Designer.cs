@@ -189,7 +189,7 @@
             this.btnBuscarGato.TabIndex = 28;
             this.btnBuscarGato.Text = "Buscar";
             this.btnBuscarGato.UseVisualStyleBackColor = true;
-            this.btnBuscarGato.Click += new System.EventHandler(this.btnBuscarGato_Click_1);
+            this.btnBuscarGato.Click += new System.EventHandler(this.btnBuscarGato_Click);
             // 
             // frmSearchScreen
             // 
